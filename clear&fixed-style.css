@@ -50,7 +50,7 @@ input, textarea{font-family:inherit}
 /* 强制一行显示*/
 .nw{word-break:keep-all;word-wrap:normal;white-space:nowrap}
 
-/* 块级元素一行显示，有争议样式*/
+/* 块级元素一行显示，有问题样式*/
 .in{display:table-cell;*display:inline;zoom:1;vertical-align:top}
 
 /* inline-block元素垂直居中*/
@@ -68,5 +68,29 @@ input, textarea{font-family:inherit}
 /* 三角符号*/
 .sj{border:0 dashed transparent;display:inline-block;*display:inline;zoom:1;height:0;width:0;overflow:hidden}
 
-/* 两端对齐，等待测试*/
-.jy{text-justify:distribute;text-align:justify}
+/* 两端对齐*/
+.jy{text-justify:inter-ideograph;text-align:justify;}
+/* 单行两端对齐*/
+.jy-last{text-justify:distribute-all-lines;text-align:justify;}
+.jy-last *{text-justify:none;text-align:left;}
+.jy-last:after{content:'';display:inline-block;width:100%;height:0;visibility:hidden;overflow:hidden;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

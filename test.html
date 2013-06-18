@@ -4,13 +4,59 @@
 <meta charset="utf-8">
 <title>测试文档</title>
 <link rel="stylesheet" href="clear&fixed-style.css">
-
+<style type="text/css">
+	body{padding:0 0 20px}
+	
+	.d i{position:relative;letter-spacing:10px}
+	label{display:block;height:30px;text-align:left;background:#f00;}
+	label span{width:100px;height:100%;line-height:30px;font-size:14px}
+</style>
 </head>
 
-<body>
-	<h1>两端对齐</h1>
-	<p style="width:200px" class="jy">
-		text-justify : auto |inter-word | newspaper | distribute | distribute-all-lines | inter-ideograph;auto :允许浏览器用户代理确定使用的两端对齐法则 inter-word :通过增加字之间的空格对齐文本。该行为是对齐所有文本行最快的方法。它的两端对齐行为对段落的最后一行无效 newspaper : 通过增加或减少字或字母之间的空格对齐文本。是用于拉丁文字母表两端对齐的最精确格式 distribute :处理空格很像newspaper，适用于东亚文档。尤其是泰国 distribute-all-lines :两端对齐行的方式与distribute相同，也同样不包含两段对齐段落的最后一行。适用于表意字文档 inter-ideograph : 为表意字文本提供完全两端对齐。他增加或减少表意字和词间的空格
-	</p>
+<body class=''>
+	<div style='width:200px;margin:0 auto;background:#ddd;'>
+		<h1>两端对齐</h1>
+		<p class="jy cs">
+			如何在IE6及更早浏览器中定义小高度的容器？ 如何解决IE6及更早浏览器浮动时产生双倍边距的BUG？ 如何在IE6及更早浏览器下模拟min-height效果？ 如何解决按钮在IE7及更早浏览器下随着value增多两边留白也随着增加的问题？ 如何解决IE7及更早浏览器下当li中出现2个或以上的浮动时，li之间产生的空白间隙的BUG？ 如何解决IE6及更早浏览器下的3像素BUG？ 如何解决IE6下的文本溢出BUG（江湖匪号：“谍影重重”或“一只猪的故事”）？ 如何解决IE6使用滤镜PNG图片透明后，容器内链接失效的问题？ 如何解决IE6无法识别伪对象:first-letter/:first-line的问题？ 如何解决IE8会忽略伪对象:first-letter/:first-line里的!important规则的问题？ 如何解决IE6会忽略同一条样式体内的!important规则的问题？ 如何解决IE6及更早浏览器下当li内部元素是定义了display:block的内联元素时底部产生空白的问题？ 如何解决IE6及更早浏览器下未定义宽度的浮动或绝对定位元素会被内部设置了zoom:1的块元素撑开的问题？ 如何解决IE7及更早浏览器下子元素相对定位时父元素overflow属性的auto|hidden失效的问题？ 如何解决Chrome在应用transition时页面闪动的问题？
+		</p>
+	</div>
+	<div style='width:400px;margin:0 auto;background:#ddd;'>
+		<h1>单行对齐</h1>
+		<label ><span class='vm jy-last'>姓 名 ：</span><input type="text" class='vm'><i class='vz'></i></label>
+		<label ><span class='vm jy-last'>家 庭 住 址 ：</span><input type="text" class='vm'><i class='vz'></i></label>
+		<label ><span class='vm jy-last'>信 用 卡 ：</span><input type="text" class='vm'><i class='vz'></i></label>
+	</div>
+	<div style='width:400px;margin:0 auto;background:#ddd;' class='fl-child'>
+		<h1>first-child</h1>
+		<style type="text/css">
+			.first li:first-child,.first .first-Child{display:none}
+		</style>
+		<ul class='first'>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+	</div>
+	<div style='width:400px;margin:0 auto;background:#ddd;' class='fl-child'>
+		<h1>三角符号</h1>
+		<style type="text/css">
+			.sj{display:block}
+			.s1{border-width:0 100px;border-bottom:100px solid #f00}
+			.s2{border-width:0 100px;border-top:100px solid #f00}
+			.s3{border-width:100px 0;border-left:100px solid #f00}
+			.s4{border-width:100px 0;border-right:100px solid #f00}
+		</style>
+		<span class='sj s1'></span>
+		<span class='sj s3'></span>
+		<span class='sj s2'></span>
+		
+		<span class='sj s4'></span>
+	</div>
 </body>
 </html>
