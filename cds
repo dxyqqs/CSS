@@ -53,20 +53,24 @@ input, textarea,button{font-family:inherit!important}
 /* 去除标签的斜体和加粗*/
 .ct{font-style:normal;font-weight:normal}
 
-/* 强制一行显示*/
-.nw{word-break:keep-all;word-wrap:normal;white-space:nowrap}
+/* 文本强制一行显示*/
+.nw,.el{word-break:keep-all;white-space:nowrap}
+
+/* 强制元素为inline-block*/
+.in,.vm,.vz,.sj{display:inline-block}
+.in,.vm,.vz,.sj{*display:inline}
 
 /* inline-block元素垂直居中*/
-.vm{display:inline-block;*display:inline;zoom:1;vertical-align:middle}
+.vm,.vz{vertical-align:middle}
 
 /* 垂直居中元素的参照元素*/
 .vz{height:100%;width:0;overflow:hidden;visibility:hidden}
 
 /* 多余字符显示为省略号,一般需要配合不换行标签*/
-.el{word-break:keep-all;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.el{text-overflow:ellipsis;overflow:hidden}
 
 /* 三角符号*/
-.sj{border:0 dashed transparent;display:inline-block;*display:inline;zoom:1;height:0;width:0;overflow:hidden}
+.sj{border:0 dashed transparent;height:0;width:0;overflow:hidden}
 
 /* 两端对齐*/
 .jy{text-justify:inter-ideograph;text-align:justify}
