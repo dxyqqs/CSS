@@ -11,22 +11,23 @@ PC端浏览器IE10浏览器以及其他最新浏览器才能支持flex语法，�
 
 ####**类名说明**####
 *（注意观察类名格式，凡是有Parent的都是用在父辈容器上的，包含Child的都是用在子元素上的）*
- > flexParent-box/flexParent-inlinebox **必须添加，区别类似于block和inline-block**
- > flexParent-y **设定主轴方向为垂直状态，在后面会简单介绍何为主轴/侧轴**
- > flexParent-x-reverse **设定主轴水平反向**
- > flexParent-y-reverse **设定主轴垂直反向**
- > flexParent-cross-start **设定侧轴方向子元素对齐方式**
- > flexParent-cross-end **设定侧轴方向子元素对齐方式**
- > flexParent-cross-center **设定侧轴方向子元素对齐方式**
- > flexParent-main-start **设定主轴方向子元素对齐方式**
- > flexParent-main-reverse-start **设定主轴方向反向时子元素对齐方式**
- > flexParent-main-center **设定主轴方向子元素对齐方式**
- > flexParent-main-reverse-center **设定主轴方向反向时子元素对齐方式**
- > flexParent-main-end **设定主轴方向子元素对齐方式**
- > flexParent-main-reverse-end **设定主轴方向反向时子元素对齐方式**
- > flexParent-main-justify **设定主轴方向子元素对齐方式**
- > flexParent-wrap **子元素是否换行**
- > flexChild[1-9] **子元素空间所占比**
+ > flexParent-box/flexParent-inlinebox **必须添加，区别类似于block和inline-block** <br>
+
+ > flexParent-y **设定主轴方向为垂直状态，在后面会简单介绍何为主轴/侧轴** <br>
+ > flexParent-x-reverse **设定主轴水平反向** <br>
+ > flexParent-y-reverse **设定主轴垂直反向** <br>
+ > flexParent-cross-start **设定侧轴方向子元素对齐方式** <br>
+ > flexParent-cross-end **设定侧轴方向子元素对齐方式** <br>
+ > flexParent-cross-center **设定侧轴方向子元素对齐方式** <br>
+ > flexParent-main-start **设定主轴方向子元素对齐方式** <br>
+ > flexParent-main-reverse-start **设定主轴方向反向时子元素对齐方式** <br>
+ > flexParent-main-center **设定主轴方向子元素对齐方式** <br>
+ > flexParent-main-reverse-center **设定主轴方向反向时子元素对齐方式** <br>
+ > flexParent-main-end **设定主轴方向子元素对齐方式** <br>
+ > flexParent-main-reverse-end **设定主轴方向反向时子元素对齐方式** <br>
+ > flexParent-main-justify **设定主轴方向子元素对齐方式** <br>
+ > flexParent-wrap **子元素是否换行** <br>
+ > flexChild[1-9] **子元素空间所占比** <br>
 
 
 ####**flex语法简单介绍**####
@@ -35,7 +36,7 @@ PC端浏览器IE10浏览器以及其他最新浏览器才能支持flex语法，�
 需要注意的是新语法中的主/侧轴是有方向的，这个方向可以认为是书写方向，书写方向影响对齐属性的表现方式。老语法flexbox没有书写方向的概念
 
 ####**你可以参考以下博客了解更多flex**####
-[《CSS box-flex属性，然后弹性盒子模型简介》][2]
+[《CSS box-flex属性，然后弹性盒子模型简介》][2] <br>
 [《一个完整的Flexbox指南》][3]
 
   
