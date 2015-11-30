@@ -1,0 +1,335 @@
+/*
+    兼容:http://caniuse.com/#feat=flexbox
+    参考:http://www.zhangxinxu.com/wordpress/?p=1338
+         http://www.w3cplus.com/css3/a-guide-to-flexbox.html
+    问题:弹性布局中如何创建滚动区域
+	     http://stackoverflow.com/questions/14962468/flexbox-and-vertical-scroll-in-a-full-height-app-using-newer-flexbox-api/14964944#14964944
+
+*/
+
+.flexParent-box{
+
+    display: box;
+    display:-o-box;
+    display:-ms-box;
+    display:-moz-box;
+    display:-webkit-box;
+    /*-------*/
+    display: flex;
+    display:-o-flex;
+    display:-ms-flex;
+    display:-moz-flex;
+    display:-webkit-flex;
+}
+
+.flexParent-inlinebox{
+
+    display: inline-box;
+    display:-o-inline-box;
+    display:-ms-inline-box;
+    display:-moz-inline-box;
+    display:-webkit-inline-box;
+
+    /*-------*/
+    display: inline-flex;
+    display:-o-inline-flex;
+    display:-ms-inline-flex;
+    display:-moz-inline-flex;
+    display:-webkit-inline-flex;
+}
+/*修改主轴方向为垂直方向
+  默认是水平方向
+  需要说明的是box语法中是主轴这一概念并不明确，这很重要，由于主轴概念的不明确导致后面的样式表现和新flex语法有差别
+  主轴的方向会影响水平/垂直的对齐的表现方式
+  主轴方向为水平/垂直，且子元素添加了flex/grow那么对子元素设定宽度是无效的
+  需要说明的是即使没有设定flex，子元素的在对应主轴上的宽/高之最大等于主轴方向上父辈元素的长度
+  对于box语法，没有设定flex那么设定的宽/高都将如实展现
+
+*/
+.flexParent-y{
+    box-orient:vertical;
+    -o-box-orient:vertical;
+    -ms-box-orient:vertical;
+    -moz-box-orient:vertical;
+    -webkit-box-orient:vertical;
+    flex-direction:column;
+    -o-flex-direction:column;
+    -ms-flex-direction:column;
+    -moz-flex-direction:column;
+    -webkit-flex-direction:column;
+}
+
+/*
+  修改主轴的方向
+  具体表现：
+  1.反向排序子元素在主轴上的排序方式。注意，对于box属性而言，不会有第2条表现的
+  2.对齐方式改变，书写方向改变导致
+  需要说明，flex语法中如果设定主轴上的反向排序，那么它会直接覆盖掉你所设定的主轴方向
+
+*/
+.flexParent-x-reverse{
+    box-pack:end;
+    -o-box-pack:end;
+    -ms-box-pack:end;
+    -moz-box-pack:end;
+    -webkit-box-pack:end;
+    box-direction:reverse;
+    -o-box-direction:reverse;
+    -ms-box-direction:reverse;
+    -moz-box-direction:reverse;
+    -webkit-box-direction:reverse;
+    flex-direction:row-reverse;
+    -o-flex-direction:row-reverse;
+    -ms-flex-direction:row-reverse;
+    -moz-flex-direction:row-reverse;
+    -webkit-flex-direction:row-reverse;
+
+}
+.flexParent-y-reverse{/*当主轴方向垂直时使用*/
+    box-orient:vertical;
+    -o-box-orient:vertical;
+    -ms-box-orient:vertical;
+    -moz-box-orient:vertical;
+    -webkit-box-orient:vertical;
+    box-pack:end;
+    -o-box-pack:end;
+    -ms-box-pack:end;
+    -moz-box-pack:end;
+    -webkit-box-pack:end;
+    box-direction:reverse;
+    -o-box-direction:reverse;
+    -ms-box-direction:reverse;
+    -moz-box-direction:reverse;
+    -webkit-box-direction:reverse;
+    flex-direction:column-reverse;
+    -o-flex-direction:column-reverse;
+    -ms-flex-direction:column-reverse;
+    -moz-flex-direction:column-reverse;
+    -webkit-flex-direction:column-reverse;
+
+}
+/*
+   侧轴对齐方式
+*/
+
+.flexParent-cross-start{
+
+    box-align:start;
+    -o-box-align:start;
+    -ms-box-align:start;
+    -moz-box-align:start;
+    -webkit-box-align:start;
+    align-items:flex-start;
+    -o-align-items:flex-start;
+    -ms-align-items:flex-start;
+    -moz-align-items:flex-start;
+    -webkit-align-items:flex-start;
+
+}
+.flexParent-cross-end{
+
+    box-align:end;
+    -o-box-align:end;
+    -ms-box-align:end;
+    -moz-box-align:end;
+    -webkit-box-align:end;
+    align-items:flex-end;
+    -o-align-items:flex-end;
+    -ms-align-items:flex-end;
+    -moz-align-items:flex-end;
+    -webkit-align-items:flex-end;
+
+
+}
+.flexParent-cross-center{
+
+    box-align:center;
+    -o-box-align:center;
+    -ms-box-align:center;
+    -moz-box-align:center;
+    -webkit-box-align:center;
+    align-items:center;
+    -o-align-items:center;
+    -ms-align-items:center;
+    -moz-align-items:center;
+    -webkit-align-items:center;
+
+}
+
+/*
+  主轴对齐方式
+*/
+.flexParent-main-start{
+    box-pack:start;
+    -o-box-pack:start;
+    -ms-box-pack:start;
+    -moz-box-pack:start;
+    -webkit-box-pack:start;
+    justify-content:flex-start;
+    -o-justify-content:flex-start;
+    -ms-justify-content:flex-start;
+    -moz-justify-content:flex-start;
+    -webkit-justify-content:flex-start;
+
+}
+/*主轴反向时的对齐于起始*/
+.flexParent-main-reverse-start{
+  box-pack:start;
+  -o-box-pack:start;
+  -ms-box-pack:start;
+  -moz-box-pack:start;
+  -webkit-box-pack:start;
+  justify-content:flex-end;
+  -o-justify-content:flex-end;
+  -ms-justify-content:flex-end;
+  -moz-justify-content:flex-end;
+  -webkit-justify-content:flex-end;
+}
+
+.flexParent-main-center,
+/*主轴反向时的对齐于中间*/
+.flexParent-main-reverse-center{
+
+    box-pack:center;
+    -o-box-pack:center;
+    -ms-box-pack:center;
+    -moz-box-pack:center;
+    -webkit-box-pack:center;
+    justify-content:center;
+    -o-justify-content:center;
+    -ms-justify-content:center;
+    -moz-justify-content:center;
+    -webkit-justify-content:center;
+}
+
+.flexParent-main-end{
+
+    box-pack:end;
+    -o-box-pack:end;
+    -ms-box-pack:end;
+    -moz-box-pack:end;
+    -webkit-box-pack:end;
+    justify-content:flex-end;
+    -o-justify-content:flex-end;
+    -ms-justify-content:flex-end;
+    -moz-justify-content:flex-end;
+    -webkit-justify-content:flex-end;
+
+}
+/*主轴反向时的对齐于末尾*/
+.flexParent-main-reverse-end{
+
+    box-pack:end;
+    -o-box-pack:end;
+    -ms-box-pack:end;
+    -moz-box-pack:end;
+    -webkit-box-pack:end;
+    justify-content:flex-start;
+    -o-justify-content:flex-start;
+    -ms-justify-content:flex-start;
+    -moz-justify-content:flex-start;
+    -webkit-justify-content:flex-start;
+
+}
+
+
+
+.flexParent-main-justify{
+    box-pack:justify;
+    -o-box-pack:justify;
+    -ms-box-pack:justify;
+    -moz-box-pack:justify;
+    -webkit-box-pack:justify;
+    justify-content:space-between;
+    -o-justify-content:space-between;
+    -ms-justify-content:space-between;
+    -moz-justify-content:space-between;
+    -webkit-justify-content:space-between;
+
+}
+/*控制子元素单行还是多行显示
+  默认是一行显示
+  box语法中box-lines尚无浏览器支持，以后也不会支持，如果为了最大兼容，最好不使用多行显示
+  对于flex-wrap属性,不管是否设定grow,在主轴上的宽/高之和最大等于主轴的长度。
+  当设定的了此属性，那么就算添加了gorw,子元素设定的宽/高是会表现出来的，不过会自动拉升子元素适应主轴长度，但依然遵循主轴上的宽/高之和最大不超过主轴的长度
+*/
+.flexParent-wrap{
+    box-lines:multiple;
+    -o-box-lines:multiple;
+    -ms-box-lines:multiple;
+    -moz-box-lines:multiple;
+    -webkit-box-lines:multiple;
+    flex-wrap:wrap;
+    -o-flex-wrap:wrap;
+    -ms-flex-wrap:wrap;
+    -moz-flex-wrap:wrap;
+    -webkit-flex-wrap:wrap;
+}
+
+
+.flexChild1{
+
+    box-flex:1;
+    -o-box-flex:1;
+    -ms-box-flex:1;
+    -moz-box-flex:1;
+    -webkit-box-flex:1;
+    flex-grow:1;
+    -o-flex-grow:1;
+    -ms-flex-grow:1;
+    -moz-flex-grow:1;
+    -webkit-flex-grow:1;
+}
+.flexChild2{
+
+    box-flex:2;
+    -o-box-flex:2;
+    -ms-box-flex:2;
+    -moz-box-flex:2;
+    -webkit-box-flex:2;
+    flex-grow:2;
+    -o-flex-grow:2;
+    -ms-flex-grow:2;
+    -moz-flex-grow:2;
+    -webkit-flex-grow:2;
+}
+
+.flexChild3{
+
+    box-flex:3;
+    -o-box-flex:3;
+    -ms-box-flex:3;
+    -moz-box-flex:3;
+    -webkit-box-flex:3;
+    flex-grow:3;
+    -o-flex-grow:3;
+    -ms-flex-grow:3;
+    -moz-flex-grow:3;
+    -webkit-flex-grow:3;
+}
+.flexChild4{
+
+    box-flex:4;
+    -o-box-flex:4;
+    -ms-box-flex:4;
+    -moz-box-flex:4;
+    -webkit-box-flex:4;
+    flex-grow:4;
+    -o-flex-grow:4;
+    -ms-flex-grow:4;
+    -moz-flex-grow:4;
+    -webkit-flex-grow:4;
+}
+.flexChild5{
+
+    box-flex:5;
+    -o-box-flex:5;
+    -ms-box-flex:5;
+    -moz-box-flex:5;
+    -webkit-box-flex:5;
+    flex-grow:5;
+    -o-flex-grow:5;
+    -ms-flex-grow:5;
+    -moz-flex-grow:5;
+    -webkit-flex-grow:5;
+}
