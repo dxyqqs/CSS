@@ -26,7 +26,7 @@ PC端浏览器IE10浏览器以及其他最新浏览器才能支持flex语法，�
  > flexParent-main-reverse-end **设定主轴方向反向时子元素对齐方式** <br>
  > flexParent-main-justify **设定主轴方向子元素对齐方式** <br>
  > flexParent-wrap **子元素是否换行** <br>
- > flexChild[1-9] **子元素空间所占比** <br>
+ > flexChild[1-5] **子元素空间所占比** <br>
 
 
 ####**flex语法简单介绍**####
@@ -37,8 +37,8 @@ PC端浏览器IE10浏览器以及其他最新浏览器才能支持flex语法，�
 ####**你可以参考以下博客了解更多flex**####
 [《CSS box-flex属性，然后弹性盒子模型简介》][2] <br>
 [《一个完整的Flexbox指南》][3]
+[flex可能会遇到的问题][4]
 
-  
   
   
   
@@ -48,3 +48,4 @@ PC端浏览器IE10浏览器以及其他最新浏览器才能支持flex语法，�
   [1]: http://caniuse.com/#feat=flexbox
   [2]: http://www.zhangxinxu.com/wordpress/2010/12/css-box-flex%E5%B1%9E%E6%80%A7%EF%BC%8C%E7%84%B6%E5%90%8E%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%AE%80%E4%BB%8B/
   [3]: http://www.w3cplus.com/css3/a-guide-to-flexbox.html
+  [4]: http://stackoverflow.com/questions/14962468/flexbox-and-vertical-scroll-in-a-full-height-app-using-newer-flexbox-api/14964944#14964944

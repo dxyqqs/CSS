@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
     兼容:http://caniuse.com/#feat=flexbox
     参考:http://www.zhangxinxu.com/wordpress/?p=1338
@@ -6,32 +7,34 @@
 	     http://stackoverflow.com/questions/14962468/flexbox-and-vertical-scroll-in-a-full-height-app-using-newer-flexbox-api/14964944#14964944
 
 */
-.flexParent-box {
+.flex {
+  /*old*/
   display: box;
   display: -o-box;
   display: -ms-box;
   display: -moz-box;
   display: -webkit-box;
-  /*-------*/
+  /*new*/
   display: flex;
   display: -o-flex;
   display: -ms-flex;
   display: -moz-flex;
-  display: -webkit-flex;
-}
-.flexParent-inlinebox {
+  display: -webkit-flex; }
+
+.flex-inline {
+  /*old*/
   display: inline-box;
   display: -o-inline-box;
   display: -ms-inline-box;
   display: -moz-inline-box;
   display: -webkit-inline-box;
-  /*-------*/
+  /*new*/
   display: inline-flex;
   display: -o-inline-flex;
   display: -ms-inline-flex;
   display: -moz-inline-flex;
-  display: -webkit-inline-flex;
-}
+  display: -webkit-inline-flex; }
+
 /*修改主轴方向为垂直方向
   默认是水平方向
   需要说明的是box语法中是主轴这一概念并不明确，这很重要，由于主轴概念的不明确导致后面的样式表现和新flex语法有差别
@@ -41,18 +44,28 @@
   对于box语法，没有设定flex那么设定的宽/高都将如实展现
 
 */
-.flexParent-y {
+.flex-parent-y {
+  /*old*/
   box-orient: vertical;
   -o-box-orient: vertical;
+  -o-box-orient: -o-vertical;
   -ms-box-orient: vertical;
+  -ms-box-orient: -ms-vertical;
   -moz-box-orient: vertical;
+  -moz-box-orient: -moz-vertical;
   -webkit-box-orient: vertical;
+  -webkit-box-orient: -webkit-vertical;
+  /*new*/
   flex-direction: column;
   -o-flex-direction: column;
+  -o-flex-direction: -o-column;
   -ms-flex-direction: column;
+  -ms-flex-direction: -ms-column;
   -moz-flex-direction: column;
+  -moz-flex-direction: -moz-column;
   -webkit-flex-direction: column;
-}
+  -webkit-flex-direction: -webkit-column; }
+
 /*
   修改主轴的方向
   具体表现：
@@ -61,163 +74,286 @@
   需要说明，flex语法中如果设定主轴上的反向排序，那么它会直接覆盖掉你所设定的主轴方向
 
 */
-.flexParent-x-reverse {
+.flex-parent-x-reverse {
+  /*old*/
   box-pack: end;
   -o-box-pack: end;
+  -o-box-pack: -o-end;
   -ms-box-pack: end;
+  -ms-box-pack: -ms-end;
   -moz-box-pack: end;
+  -moz-box-pack: -moz-end;
   -webkit-box-pack: end;
+  -webkit-box-pack: -webkit-end;
   box-direction: reverse;
   -o-box-direction: reverse;
+  -o-box-direction: -o-reverse;
   -ms-box-direction: reverse;
+  -ms-box-direction: -ms-reverse;
   -moz-box-direction: reverse;
+  -moz-box-direction: -moz-reverse;
   -webkit-box-direction: reverse;
+  -webkit-box-direction: -webkit-reverse;
+  /*new*/
   flex-direction: row-reverse;
   -o-flex-direction: row-reverse;
+  -o-flex-direction: -o-row-reverse;
   -ms-flex-direction: row-reverse;
+  -ms-flex-direction: -ms-row-reverse;
   -moz-flex-direction: row-reverse;
+  -moz-flex-direction: -moz-row-reverse;
   -webkit-flex-direction: row-reverse;
-}
-.flexParent-y-reverse {
+  -webkit-flex-direction: -webkit-row-reverse; }
+
+.flex-parent-y-reverse {
   /*当主轴方向垂直时使用*/
-  box-orient: vertical;
-  -o-box-orient: vertical;
-  -ms-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -webkit-box-orient: vertical;
+  /*old*/
   box-pack: end;
   -o-box-pack: end;
+  -o-box-pack: -o-end;
   -ms-box-pack: end;
+  -ms-box-pack: -ms-end;
   -moz-box-pack: end;
+  -moz-box-pack: -moz-end;
   -webkit-box-pack: end;
+  -webkit-box-pack: -webkit-end;
+  box-orient: vertical;
+  -o-box-orient: vertical;
+  -o-box-orient: -o-vertical;
+  -ms-box-orient: vertical;
+  -ms-box-orient: -ms-vertical;
+  -moz-box-orient: vertical;
+  -moz-box-orient: -moz-vertical;
+  -webkit-box-orient: vertical;
+  -webkit-box-orient: -webkit-vertical;
   box-direction: reverse;
   -o-box-direction: reverse;
+  -o-box-direction: -o-reverse;
   -ms-box-direction: reverse;
+  -ms-box-direction: -ms-reverse;
   -moz-box-direction: reverse;
+  -moz-box-direction: -moz-reverse;
   -webkit-box-direction: reverse;
+  -webkit-box-direction: -webkit-reverse;
+  /*new*/
   flex-direction: column-reverse;
   -o-flex-direction: column-reverse;
+  -o-flex-direction: -o-column-reverse;
   -ms-flex-direction: column-reverse;
+  -ms-flex-direction: -ms-column-reverse;
   -moz-flex-direction: column-reverse;
+  -moz-flex-direction: -moz-column-reverse;
   -webkit-flex-direction: column-reverse;
-}
+  -webkit-flex-direction: -webkit-column-reverse; }
+
 /*
    侧轴对齐方式
 */
-.flexParent-cross-start {
+.flex-parent-cross-start {
+  /*old*/
   box-align: start;
   -o-box-align: start;
+  -o-box-align: -o-start;
   -ms-box-align: start;
+  -ms-box-align: -ms-start;
   -moz-box-align: start;
+  -moz-box-align: -moz-start;
   -webkit-box-align: start;
+  -webkit-box-align: -webkit-start;
+  /*new*/
   align-items: flex-start;
   -o-align-items: flex-start;
+  -o-align-items: -o-flex-start;
   -ms-align-items: flex-start;
+  -ms-align-items: -ms-flex-start;
   -moz-align-items: flex-start;
+  -moz-align-items: -moz-flex-start;
   -webkit-align-items: flex-start;
-}
+  -webkit-align-items: -webkit-flex-start; }
+
 .flexParent-cross-end {
+  /*old*/
   box-align: end;
   -o-box-align: end;
+  -o-box-align: -o-end;
   -ms-box-align: end;
+  -ms-box-align: -ms-end;
   -moz-box-align: end;
+  -moz-box-align: -moz-end;
   -webkit-box-align: end;
+  -webkit-box-align: -webkit-end;
+  /*new*/
   align-items: flex-end;
   -o-align-items: flex-end;
+  -o-align-items: -o-flex-end;
   -ms-align-items: flex-end;
+  -ms-align-items: -ms-flex-end;
   -moz-align-items: flex-end;
+  -moz-align-items: -moz-flex-end;
   -webkit-align-items: flex-end;
-}
+  -webkit-align-items: -webkit-flex-end; }
+
 .flexParent-cross-center {
+  /*old*/
   box-align: center;
   -o-box-align: center;
+  -o-box-align: -o-center;
   -ms-box-align: center;
+  -ms-box-align: -ms-center;
   -moz-box-align: center;
+  -moz-box-align: -moz-center;
   -webkit-box-align: center;
+  -webkit-box-align: -webkit-center;
+  /*new*/
   align-items: center;
   -o-align-items: center;
+  -o-align-items: -o-center;
   -ms-align-items: center;
+  -ms-align-items: -ms-center;
   -moz-align-items: center;
+  -moz-align-items: -moz-center;
   -webkit-align-items: center;
-}
+  -webkit-align-items: -webkit-center; }
+
 /*
   主轴对齐方式
 */
 .flexParent-main-start {
+  /*old*/
   box-pack: start;
   -o-box-pack: start;
+  -o-box-pack: -o-start;
   -ms-box-pack: start;
+  -ms-box-pack: -ms-start;
   -moz-box-pack: start;
+  -moz-box-pack: -moz-start;
   -webkit-box-pack: start;
+  -webkit-box-pack: -webkit-start;
+  /*new*/
   justify-content: flex-start;
   -o-justify-content: flex-start;
+  -o-justify-content: -o-flex-start;
   -ms-justify-content: flex-start;
+  -ms-justify-content: -ms-flex-start;
   -moz-justify-content: flex-start;
+  -moz-justify-content: -moz-flex-start;
   -webkit-justify-content: flex-start;
-}
+  -webkit-justify-content: -webkit-flex-start; }
+
 /*主轴反向时的对齐于起始*/
 .flexParent-main-reverse-start {
+  /*old*/
   box-pack: start;
   -o-box-pack: start;
+  -o-box-pack: -o-start;
   -ms-box-pack: start;
+  -ms-box-pack: -ms-start;
   -moz-box-pack: start;
+  -moz-box-pack: -moz-start;
   -webkit-box-pack: start;
+  -webkit-box-pack: -webkit-start;
+  /*new*/
   justify-content: flex-end;
   -o-justify-content: flex-end;
+  -o-justify-content: -o-flex-end;
   -ms-justify-content: flex-end;
+  -ms-justify-content: -ms-flex-end;
   -moz-justify-content: flex-end;
+  -moz-justify-content: -moz-flex-end;
   -webkit-justify-content: flex-end;
-}
+  -webkit-justify-content: -webkit-flex-end; }
+
+/*主轴反向时的对齐于中间*/
 .flexParent-main-center,
 .flexParent-main-reverse-center {
+  /*old*/
   box-pack: center;
   -o-box-pack: center;
+  -o-box-pack: -o-center;
   -ms-box-pack: center;
+  -ms-box-pack: -ms-center;
   -moz-box-pack: center;
+  -moz-box-pack: -moz-center;
   -webkit-box-pack: center;
+  -webkit-box-pack: -webkit-center;
+  /*new*/
   justify-content: center;
   -o-justify-content: center;
+  -o-justify-content: -o-center;
   -ms-justify-content: center;
+  -ms-justify-content: -ms-center;
   -moz-justify-content: center;
+  -moz-justify-content: -moz-center;
   -webkit-justify-content: center;
-}
+  -webkit-justify-content: -webkit-center; }
+
 .flexParent-main-end {
+  /*old*/
   box-pack: end;
   -o-box-pack: end;
+  -o-box-pack: -o-end;
   -ms-box-pack: end;
+  -ms-box-pack: -ms-end;
   -moz-box-pack: end;
+  -moz-box-pack: -moz-end;
   -webkit-box-pack: end;
+  -webkit-box-pack: -webkit-end;
+  /*new*/
   justify-content: flex-end;
   -o-justify-content: flex-end;
+  -o-justify-content: -o-flex-end;
   -ms-justify-content: flex-end;
+  -ms-justify-content: -ms-flex-end;
   -moz-justify-content: flex-end;
+  -moz-justify-content: -moz-flex-end;
   -webkit-justify-content: flex-end;
-}
+  -webkit-justify-content: -webkit-flex-end; }
+
 /*主轴反向时的对齐于末尾*/
 .flexParent-main-reverse-end {
+  /*old*/
   box-pack: end;
   -o-box-pack: end;
+  -o-box-pack: -o-end;
   -ms-box-pack: end;
+  -ms-box-pack: -ms-end;
   -moz-box-pack: end;
+  -moz-box-pack: -moz-end;
   -webkit-box-pack: end;
+  -webkit-box-pack: -webkit-end;
+  /*new*/
   justify-content: flex-start;
   -o-justify-content: flex-start;
+  -o-justify-content: -o-flex-start;
   -ms-justify-content: flex-start;
+  -ms-justify-content: -ms-flex-start;
   -moz-justify-content: flex-start;
+  -moz-justify-content: -moz-flex-start;
   -webkit-justify-content: flex-start;
-}
+  -webkit-justify-content: -webkit-flex-start; }
+
 .flexParent-main-justify {
+  /*old*/
   box-pack: justify;
   -o-box-pack: justify;
+  -o-box-pack: -o-justify;
   -ms-box-pack: justify;
+  -ms-box-pack: -ms-justify;
   -moz-box-pack: justify;
+  -moz-box-pack: -moz-justify;
   -webkit-box-pack: justify;
+  -webkit-box-pack: -webkit-justify;
+  /*new*/
   justify-content: space-between;
   -o-justify-content: space-between;
+  -o-justify-content: -o-space-between;
   -ms-justify-content: space-between;
+  -ms-justify-content: -ms-space-between;
   -moz-justify-content: space-between;
+  -moz-justify-content: -moz-space-between;
   -webkit-justify-content: space-between;
-}
+  -webkit-justify-content: -webkit-space-between; }
+
 /*控制子元素单行还是多行显示
   默认是一行显示
   box语法中box-lines尚无浏览器支持，以后也不会支持，如果为了最大兼容，最好不使用多行显示
@@ -225,74 +361,134 @@
   当设定的了此属性，那么就算添加了gorw,子元素设定的宽/高是会表现出来的，不过会自动拉升子元素适应主轴长度，但依然遵循主轴上的宽/高之和最大不超过主轴的长度
 */
 .flexParent-wrap {
+  /*old*/
   box-lines: multiple;
   -o-box-lines: multiple;
+  -o-box-lines: -o-multiple;
   -ms-box-lines: multiple;
+  -ms-box-lines: -ms-multiple;
   -moz-box-lines: multiple;
+  -moz-box-lines: -moz-multiple;
   -webkit-box-lines: multiple;
+  -webkit-box-lines: -webkit-multiple;
+  /*new*/
   flex-wrap: wrap;
   -o-flex-wrap: wrap;
+  -o-flex-wrap: -o-wrap;
   -ms-flex-wrap: wrap;
+  -ms-flex-wrap: -ms-wrap;
   -moz-flex-wrap: wrap;
+  -moz-flex-wrap: -moz-wrap;
   -webkit-flex-wrap: wrap;
-}
-.flexChild1 {
+  -webkit-flex-wrap: -webkit-wrap; }
+
+/*元素占用比*/
+.flex-grow-1 {
+  /*old*/
   box-flex: 1;
   -o-box-flex: 1;
+  -o-box-flex: -o-1;
   -ms-box-flex: 1;
+  -ms-box-flex: -ms-1;
   -moz-box-flex: 1;
+  -moz-box-flex: -moz-1;
   -webkit-box-flex: 1;
+  -webkit-box-flex: -webkit-1;
+  /*new*/
   flex-grow: 1;
   -o-flex-grow: 1;
+  -o-flex-grow: -o-1;
   -ms-flex-grow: 1;
+  -ms-flex-grow: -ms-1;
   -moz-flex-grow: 1;
+  -moz-flex-grow: -moz-1;
   -webkit-flex-grow: 1;
-}
-.flexChild2 {
+  -webkit-flex-grow: -webkit-1; }
+
+.flex-grow-2 {
+  /*old*/
   box-flex: 2;
   -o-box-flex: 2;
+  -o-box-flex: -o-2;
   -ms-box-flex: 2;
+  -ms-box-flex: -ms-2;
   -moz-box-flex: 2;
+  -moz-box-flex: -moz-2;
   -webkit-box-flex: 2;
+  -webkit-box-flex: -webkit-2;
+  /*new*/
   flex-grow: 2;
   -o-flex-grow: 2;
+  -o-flex-grow: -o-2;
   -ms-flex-grow: 2;
+  -ms-flex-grow: -ms-2;
   -moz-flex-grow: 2;
+  -moz-flex-grow: -moz-2;
   -webkit-flex-grow: 2;
-}
-.flexChild3 {
+  -webkit-flex-grow: -webkit-2; }
+
+.flex-grow-3 {
+  /*old*/
   box-flex: 3;
   -o-box-flex: 3;
+  -o-box-flex: -o-3;
   -ms-box-flex: 3;
+  -ms-box-flex: -ms-3;
   -moz-box-flex: 3;
+  -moz-box-flex: -moz-3;
   -webkit-box-flex: 3;
+  -webkit-box-flex: -webkit-3;
+  /*new*/
   flex-grow: 3;
   -o-flex-grow: 3;
+  -o-flex-grow: -o-3;
   -ms-flex-grow: 3;
+  -ms-flex-grow: -ms-3;
   -moz-flex-grow: 3;
+  -moz-flex-grow: -moz-3;
   -webkit-flex-grow: 3;
-}
-.flexChild4 {
+  -webkit-flex-grow: -webkit-3; }
+
+.flex-grow-4 {
+  /*old*/
   box-flex: 4;
   -o-box-flex: 4;
+  -o-box-flex: -o-4;
   -ms-box-flex: 4;
+  -ms-box-flex: -ms-4;
   -moz-box-flex: 4;
+  -moz-box-flex: -moz-4;
   -webkit-box-flex: 4;
+  -webkit-box-flex: -webkit-4;
+  /*new*/
   flex-grow: 4;
   -o-flex-grow: 4;
+  -o-flex-grow: -o-4;
   -ms-flex-grow: 4;
+  -ms-flex-grow: -ms-4;
   -moz-flex-grow: 4;
+  -moz-flex-grow: -moz-4;
   -webkit-flex-grow: 4;
-}
-.flexChild5 {
+  -webkit-flex-grow: -webkit-4; }
+
+.flex-grow-5 {
+  /*old*/
   box-flex: 5;
   -o-box-flex: 5;
+  -o-box-flex: -o-5;
   -ms-box-flex: 5;
+  -ms-box-flex: -ms-5;
   -moz-box-flex: 5;
+  -moz-box-flex: -moz-5;
   -webkit-box-flex: 5;
+  -webkit-box-flex: -webkit-5;
+  /*new*/
   flex-grow: 5;
   -o-flex-grow: 5;
+  -o-flex-grow: -o-5;
   -ms-flex-grow: 5;
+  -ms-flex-grow: -ms-5;
   -moz-flex-grow: 5;
+  -moz-flex-grow: -moz-5;
   -webkit-flex-grow: 5;
-}
+  -webkit-flex-grow: -webkit-5; }

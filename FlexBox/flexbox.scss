@@ -1,0 +1,167 @@
+/*
+    兼容:http://caniuse.com/#feat=flexbox
+    参考:http://www.zhangxinxu.com/wordpress/?p=1338
+         http://www.w3cplus.com/css3/a-guide-to-flexbox.html
+    问题:弹性布局中如何创建滚动区域
+	     http://stackoverflow.com/questions/14962468/flexbox-and-vertical-scroll-in-a-full-height-app-using-newer-flexbox-api/14964944#14964944
+
+*/
+
+$prefix : -o-,-ms-,-moz-,-webkit-,;
+
+@mixin AP($name,$value,$needPre:0){
+	
+	#{$name}:$value;
+	@each $pf in $prefix{
+		@if $needPre == 0{
+		   #{$pf}$name:$value;
+		}
+		@if $needPre == 1{
+		   #{$name}:#{$pf}$value;
+		}@else {
+		   #{$pf}$name:#{$pf}$value;
+		}
+	};
+	
+}
+
+.flex{
+	/*old*/
+	@include AP(display,box,1);
+	/*new*/
+    @include AP(display,flex,1);
+}
+.flex-inline{
+	/*old*/
+	@include AP(display,inline-box,1);
+	/*new*/
+    @include AP(display,inline-flex,1);
+}
+/*修改主轴方向为垂直方向
+  默认是水平方向
+  需要说明的是box语法中是主轴这一概念并不明确，这很重要，由于主轴概念的不明确导致后面的样式表现和新flex语法有差别
+  主轴的方向会影响水平/垂直的对齐的表现方式
+  主轴方向为水平/垂直，且子元素添加了flex/grow那么对子元素设定宽度是无效的
+  需要说明的是即使没有设定flex，子元素的在对应主轴上的宽/高之最大等于主轴方向上父辈元素的长度
+  对于box语法，没有设定flex那么设定的宽/高都将如实展现
+
+*/
+.flex-parent-y{
+   /*old*/
+	@include AP(box-orient,vertical);
+	/*new*/
+    @include AP(flex-direction,column);
+}
+/*
+  修改主轴的方向
+  具体表现：
+  1.反向排序子元素在主轴上的排序方式。注意，对于box属性而言，不会有第2条表现的
+  2.对齐方式改变，书写方向改变导致
+  需要说明，flex语法中如果设定主轴上的反向排序，那么它会直接覆盖掉你所设定的主轴方向
+
+*/
+.flex-parent-x-reverse{
+	/*old*/
+	@include AP(box-pack,end);
+	@include AP(box-direction,reverse);
+	/*new*/
+    @include AP(flex-direction,row-reverse);
+}
+.flex-parent-y-reverse{/*当主轴方向垂直时使用*/
+	/*old*/
+	@include AP(box-pack,end);
+	@include AP(box-orient,vertical);
+	@include AP(box-direction,reverse);
+	/*new*/
+    @include AP(flex-direction,column-reverse);
+
+}
+/*
+   侧轴对齐方式
+*/
+.flex-parent-cross-start{
+	/*old*/
+	@include AP(box-align,start);
+	/*new*/
+    @include AP(align-items,flex-start);
+}
+.flexParent-cross-end{
+    /*old*/
+	@include AP(box-align,end);
+	/*new*/
+    @include AP(align-items,flex-end);
+}
+.flexParent-cross-center{
+	/*old*/
+	@include AP(box-align,center);
+	/*new*/
+    @include AP(align-items,center);
+}
+/*
+  主轴对齐方式
+*/
+.flexParent-main-start{
+    /*old*/
+	@include AP(box-pack,start);
+	/*new*/
+    @include AP(justify-content,flex-start);
+}
+/*主轴反向时的对齐于起始*/
+.flexParent-main-reverse-start{
+	/*old*/
+	@include AP(box-pack,start);
+	/*new*/
+	@include AP(justify-content,flex-end);
+}
+/*主轴反向时的对齐于中间*/
+.flexParent-main-center,
+.flexParent-main-reverse-center{
+	/*old*/
+	@include AP(box-pack,center);
+	/*new*/
+	@include AP(justify-content,center);
+}
+
+.flexParent-main-end{
+	/*old*/
+	@include AP(box-pack,end);
+	/*new*/
+	@include AP(justify-content,flex-end);
+
+}
+/*主轴反向时的对齐于末尾*/
+.flexParent-main-reverse-end{
+	/*old*/
+	@include AP(box-pack,end);
+	/*new*/
+	@include AP(justify-content,flex-start);
+}
+.flexParent-main-justify{
+	/*old*/
+	@include AP(box-pack,justify);
+	/*new*/
+	@include AP(justify-content,space-between);	
+}
+/*控制子元素单行还是多行显示
+  默认是一行显示
+  box语法中box-lines尚无浏览器支持，以后也不会支持，如果为了最大兼容，最好不使用多行显示
+  对于flex-wrap属性,不管是否设定grow,在主轴上的宽/高之和最大等于主轴的长度。
+  当设定的了此属性，那么就算添加了gorw,子元素设定的宽/高是会表现出来的，不过会自动拉升子元素适应主轴长度，但依然遵循主轴上的宽/高之和最大不超过主轴的长度
+*/
+.flexParent-wrap{
+	/*old*/
+	@include AP(box-lines,multiple);
+	/*new*/
+	@include AP(flex-wrap,wrap);
+}
+/*元素占用比*/
+@for $i from 1 through 5{
+	.flex-grow-#{$i}{
+		 /*old*/
+		@include AP(box-flex,$i);
+		/*new*/
+		@include AP(flex-grow,$i);	
+	}
+}
+
+
